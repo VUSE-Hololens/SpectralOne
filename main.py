@@ -18,7 +18,7 @@ session_name = "python_test"
 image_directory = 'images'
 
 # constants
-sentera_url = "http://192.168.143.141/"
+sentera_url = "http://192.168.43.1:8080/"
 download_extension = "sdcard?path=/snapshots/"
 
 # main
