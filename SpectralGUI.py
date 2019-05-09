@@ -17,9 +17,9 @@ import SpectralControl as sc
 class SpectralGUI:
 
     def __init__(self):
-        self.spect = sc.SpectralControl()
         self.initUI()
         self.packUI()
+        self.spect = sc.SpectralControl()
         self.state = 0
 
         self.window.mainloop()
@@ -59,7 +59,7 @@ class SpectralGUI:
         return self.spect.getImg();
 
     def nextImg(self):
-        #print("Next Image")
+        # print("Next Image")
         self.path = self.saveImg()
         self.img = ImageTk.PhotoImage(Image.open(self.path))
         self.panel.configure(image = self.img)
