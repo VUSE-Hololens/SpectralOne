@@ -85,6 +85,7 @@ class SpectralGUI:
             self.state = 1
             self.cal_button.config(text='Cancel Calibration')
             self.window.config(cursor='target')
+            #Add code for calibration here
         else:
             self.state = 0
             self.cal_button.config(text='Calibrate Image')
