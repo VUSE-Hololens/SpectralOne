@@ -19,12 +19,12 @@ import shutil
 class SpectralGUI:
 
     def __init__(self):
+        self.spect = sc.SpectralControl()
         self.initUI()
         self.packUI()
-        self.spect = sc.SpectralControl()
         self.state = 0
         self.imgNum = 0
-        self.liveView = True
+        self.liveView = False
 
         self.window.mainloop()
         self.mainLoop()
