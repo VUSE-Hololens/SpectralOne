@@ -59,7 +59,7 @@ class SpectralControl:
             new_ndvi = False
 
         if new_ndvi:
-            ndvi_filepath = 'images/NDVI/tmpImg'
+            ndvi_filepath = ndvi_filepath = 'images/NDVI/' + self.red_id[self.red_id.find('/')+1:]
             ndvi_img = ndvi.calc_ndvi(self.rgb_img, self.nir_img)
             ndvi.write_img(ndvi_img, ndvi_filepath)
             print("Wrote NDVI image to: {0}".format(ndvi_filepath))

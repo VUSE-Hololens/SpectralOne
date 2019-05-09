@@ -17,9 +17,9 @@ import SpectralControl as sc
 class SpectralGUI:
 
     def __init__(self):
+        self.spect = sc.SpectralControl()
         self.initUI()
         self.packUI()
-        self.spect = sc.SpectralControl()
         self.state = 0
 
         self.window.mainloop()
@@ -38,7 +38,7 @@ class SpectralGUI:
         self.cal_button = Button(self.buttonFrame, text='Calibrate Image', command = self.calibrateImg)
 
         #Image frame
-        self.path = self.saveImg()
+        self.path = self.getImgPath()
         self.img = ImageTk.PhotoImage(Image.open(self.path))
 
         #UI Elements
