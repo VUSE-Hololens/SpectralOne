@@ -19,15 +19,16 @@ import shutil
 class SpectralGUI:
 
     def __init__(self):
-        self.spect = sc.SpectralControl()
         self.initUI()
         self.packUI()
+        self.spect = sc.SpectralControl()
         self.state = 0
         self.imgNum = 0
         self.liveView = False
 
         self.window.mainloop()
-        self.mainLoop()
+        #self.mainLoop()
+        # self.nextImg()
 
     def initUI(self):
         self.window = Tk()
@@ -43,7 +44,8 @@ class SpectralGUI:
         self.cal_button = Button(self.buttonFrame, text='Calibrate Image', command = self.calibrateImg)
 
         #Image frame
-        self.path = self.nextImg()
+        # self.path = self.nextImg()
+        self.path = "C:\\Users\\Keegan\\Documents\\HoloLens\\SpectralOne\\images\\NDVI\\IMG_00010.jpg"
         self.img = ImageTk.PhotoImage(Image.open(self.path))
 
         #UI Elements
