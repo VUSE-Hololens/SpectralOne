@@ -17,9 +17,9 @@ import SpectralControl as sc
 class SpectralGUI:
 
     def __init__(self):
+        self.spect = sc.SpectralControl()
         self.initUI()
         self.packUI()
-        self.spect = sc.SpectralControl()
         self.state = 0
 
         self.window.mainloop()
