@@ -15,6 +15,7 @@ from enum import Enum
 import SpectralControl as sc
 import time
 import shutil
+import ndvi
 
 class SpectralGUI:
 
@@ -66,9 +67,11 @@ class SpectralGUI:
         #TODO: Take the img in memory from nextImg and save it to file directory
         #Pause live viewing
         self.liveView = False
-        save_filepath = 'images/NDVI/' + imgNum
-        shutil.copy(self.path, save_filepath)
+        # save_filepath = 'images/NDVI/' + imgNum
+        # shutil.copy(self.path, save_filepath)
+        filepath = ndvi_filepath = 'images/NDVI/' + imgNum + '.jpg'
         imgNum = imgNum+1
+        ndvi.write_img(self.img, filepath)
         #Resume live view
         self.liveView = True
 
@@ -76,11 +79,12 @@ class SpectralGUI:
     def nextImg(self):
         #TODO: Improvement - this shouldn't save a file at all
         #Should get most recent image and store it in memory
-        self.path = self.spect.getImg();
-        self.img = ImageTk.PhotoImage(Image.open(self.path))
+        # self.path = self.spect.getImg();
+        # self.img = ImageTk.PhotoImage(Image.open(self.path))
+        self.img = ImageTk.PhotoImage(self.spect.getImg())
         self.panel.configure(image = self.img)
         self.panel.img = self.img
-        print(self.path)
+        # print(self.path)
 
     def calibrateImg(self):
         if(self.state == 0):
@@ -99,9 +103,9 @@ class SpectralGUI:
             print('Y:', event.y)
 
     def mainLoop(self):
-        while(self.liveView):
-            nextImg()
-            time.sleep(1)
+        # while(self.liveView):
+        #     nextImg()
+        #     time.sleep(1)
 
 
 gui = SpectralGUI()
